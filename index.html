@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <header>
+        <div class="header">
+            <div class="header1">
+                <div class="wrap1">
+                   <button>Key institutional Data</button>
+                   <button>Futo Admission List</button>
+                   <a href="#">News</a>
+                   <a href="#">NUC</a>
+                   <a href="#">TETFUND</a>
+                   <a href="#">Transcript</a>
+                   <a href="#">Academic</a>
+                   <a href="#">Calender</a>
+                   <a href="#">Email</a>
+                   <a href="#">Alumni</a>
+                   <div class="search">&#x1F50E</div>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Staff Portal</a>
+                    <button id="student">Student Portal</button>
+                </div>
+            </div>
+            <div class="header2">
+                <img src="download (3).jpeg" width="40px" height="40px">
+                <div class="federal">
+                    <h4>THE FEDERAL UNIVERSITY</h4>
+                    <h4>OF TECHNOLOGY OWERRI</h4>
+                </div>
+                <button id="center">Center of Excellence</button>
+                
+                <a href="#" id="all1">Who We Are</a>
+                <a href="#" id="all2">Adminstration</a>
+                <a href="#" id="all3">Academics</a>
+                <a href="#" id="all4">Units/Centers</a>
+                <a href="#" id="all5">Library</a>
+                <a href="#" id="all6">Students</a>
+                <a href="#" id="all7">Reasearch</a>
+            </div>
+        </div>
+    </header>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+        
+      
+        .header{
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            width: 100%;
+        }
+        button{
+            background-color: yellow;
+            color:black;
+            border-radius:10px;
+            border-style: none;
+            margin: 0.3rem;
+            height: 30px;
+            min-width: 70px;
+            font-size: 12px;
+        }
+        #about, #about1{
+            color:white;
+            position: relative;
+            z-index:1;
+        }
+      #student{
+        background-color: green;
+        color:white;
+        width: 7rem;
+        height: 2.5rem;
+      }
+        
+        .wrap1{
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+            flex-wrap: wrap; 
+        }
+        .wrap2{
+           display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .federal{
+            display: block;
+        }
+        #center{
+            background-color: green;
+            color: whitesmoke;
+            width: 10rem;
+            font: 0.8rem sans-serif;
+        }
+       
+        #all{
+            color:black;
+            flex: 1;
+        }
+        #all1,#all2,#all3,#all4,#all5,#all6,#all7{
+            color:green;
+            
+        }
+   
+        a[href="#"]{
+         color: white;
+         margin-top: 0.7rem;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .header{
+        
+            display: flex;
+            flex-direction: column;
+        }
+        .header1{
+            background-color: rgba(3, 66, 3, 0.897);
+            width: 100%;
+            height: 3.4rem;
+            flex-wrap: wrap;
+            display: flex;
+            gap: 5rem;
+        }
+        .header2{
+            background-color: white;
+            width: 100%;
+            height: 3.4rem;
+            display: flex;
+            gap: 4.4rem;
+            flex-wrap: wrap;
+            
+        }
+        .slides{
+            display: flex;
+            width: 400%;
+            animation: slide 20s infinite;
+            
+        }
+        .container{
+            overflow-x: hidden;
+            overflow-y: scroll;
+            padding-top: 7.5rem;
+             width: 100vw;
+            height: 100vh;
+            
+        }
+        .slide img{
+            width: 25%;
+        }
+        @keyframes slide {
+            0%, 20% { margin-left: 0;}
+            25%, 45% { margin-left: -100%;}
+            50%, 70% { margin-left: -200%;}
+            75%, 100% { margin-left: -300%;}
+           
+        }
+        @media (max-width:900px) {
+         .wrap{
+          display: flex;
+          gap: 0.1rem;
+         }  
+         .header{
+            position: relative;
+            height: auto;
+         } 
+         a[href="#"]{
+            font-size: x-small;
+            
+         }
+         button{
+            font-size: xx-small;
+            min-width: 20px;
+            height: 30px;
+         }
+        }
+        .us.show{
+            display: flex;
+            flex-direction: column;
+        }
+        .office.show{
+            display: flex;
+            flex-direction: column;
+        }
+        .office{
+            background-color: green;
+            width: 150px;
+            height: 150px;
+            display: none;
+            flex-direction: column;
+            overflow-y: scroll;
+            position: absolute;
+            left: 40rem;
+              border-radius:10px;
+               border: 1px solid white;
+        }
+         .us{
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            left: 30rem;
+            top: 7rem;
+            background-color: green;
+            width: 120px;
+            z-index: 8888;
+            height: 60px;
+            padding: 2px;
+            border-radius:10px;
+            border: 1px solid white;
+        }
+        .Academics{
+              background-color: green;
+            width: 90px;
+            height: 150px;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            left: 49.7rem; 
+             border-radius:10px;
+              border: 1px solid white;
+        }
+        .Academics.show{
+                 display: flex;
+            flex-direction: column;  
+        }
+        .unit{
+            background-color: green;
+            width: 190px;
+            height: 150px;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            left: 56rem; 
+            overflow-y: scroll; 
+            border-radius:10px;
+            border: 1px solid white;
+        }
+          .unit.show{
+                 display: flex;
+                flex-direction: column;  
+        }
+        .library{
+            background-color: green;
+            width: 100px;
+            height: 180px;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            left: 67rem; 
+            border-radius:10px;
+             border: 2px solid white;
+        }
+        .library.show{
+            display: flex;
+            flex-direction: column;
+        }
+      .portal{
+               background-color: green;
+            width: 100px;
+            height: 190px;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            left: 72rem;
+            top: 9rem; 
+            border: 1px solid white;
+      }
+      .portal.show{
+        display: flex;
+        flex-direction: column;
+      }
+      .grant{
+             background-color: green;
+            width: 100px;
+            height: 200px;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            left: 78rem; 
+            border-radius:10px;
+             border: 1px solid white;
+      }
+      .grant.show{
+        display: flex;
+        flex-direction: column;
+      }
+      .Researchgrant{
+         background-color: green;
+            width: 100px;
+            height: 85px;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            left: 71.5rem; 
+            bottom: 24rem;
+      }
+      .Researchgrant.show{
+        display: flex;
+        flex-direction: column;
+      }
+      .latest{
+        background-color: green;
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        gap: 10rem;
+        align-items: center;
+        justify-content: center;
+      }
+      #how,#nerd,#success{
+        color: white;
+        border: 2px solid white;
+        background-color: rgba(3, 66, 3, 0.897);
+        width: 140px;
+      }
+    .erasmus{
+        background-color: whitesmoke;
+        width: 100vw;
+        height: 4rem;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        gap: 6rem;
+    }
+    #program, #form,#call{
+        background-color: darkgreen;
+        color: whitesmoke;
+        width: 15rem;
+    }
+    h3{
+        position: relative;
+        left: 31rem;
+    }
+    hr{
+        background-color: rgba(3, 66, 3, 0.897);
+        font: 10em sans-serif;
+    }
+    .photos{
+        background-color: whitesmoke;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 1rem;
+    }
+   #vice,#ceremony,#your,#futo,#vc,#one{
+    color: green;
+   }
+   .img1{
+    display: flex;
+    flex-direction: column;
+    
+   }
+   #see{
+    color: green;
+    border:2px solid green;
+    background-color: whitesmoke;
+    position: relative;
+    width: 10rem;
+    left: 35rem;
+   }
+   .institutional{
+    display: flex;
+    gap: 10rem;
+    position: relative;
+    margin: 3rem;
+    
+   }
+   .endownment{
+    background-color: whitesmoke;
+    width: 20rem;
+    height: 8rem;
+    border-radius:20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border:2px solid green;
+    color: green;
+   }
+   .budget{
+  background-color: whitesmoke;
+      width: 20rem;
+    height: 8rem;
+    border-radius:20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+       border:2px solid green;
+    color: green;
+   }
+   .last{
+    background-color:darkgreen;
+    color: whitesmoke;
+    width: 100%;
+    height: 16rem;
+    display: flex;
+    gap: 7rem;
+    align-items:center;
+    justify-content: center;
+   }
+
+   #icon{
+    font-family: "font-awesome 6 Free" !important;
+    font-weight: 900 !important;
+    color: yellow !important;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 4rem;
+    width: 3rem;
+    z-index: 999900000;
+   }
+   @media (max-width: 1565px) {
+       .wrap1{
+        display: flex;
+        gap: 1rem;
+    }
+    .header2{
+        display: flex;
+        gap: 2.5rem;
+    }
+   }
+   @media (max-width: 1178px) {
+       .wrap1{
+        display: flex;
+        gap: 0.2rem;
+    }
+   }
+   @media (max-width: 700px) {
+    .budget,.last1,.last,.last2,.last3{
+        font-size: smaller;
+    }
+   }
+    </style>
+</head>
+<body>
+    <div class="container">
+          <div class="us">
+             <a href="#" id="about">About Us</a>
+             <a href="#" id="about1">FUTO Anthem</a>
+         </div>
+          <div class="office">
+             <a href="#" id="about2">Office of the vice-chancellor</a>
+             <a href="#" id="about3">Office of DVC(Admin)</a>
+             <a href="#" id="about4">Office of DVC(Acad)</a>
+             <a href="#" id="about5">Office of DVC(RDI)</a>
+             <a href="#" id="about6">Office of the Bursar</a>
+             <a href="#" id="about7">Office of the Registar</a>
+         </div>
+         <div class="Academics">
+            <a href="#"id="about8">Schools</a>
+            <a href="#"id="about8">Center of Excellence</a>
+            <a href="#"id="about8">Institutes</a>
+            <a href="#"id="about8">Directorate</a>
+         </div>
+         <div class="unit">
+            <a href="#"id="about8">Examination Unit</a>
+            <a href="#"id="about8">FUTO Alumni Association National Secretariat</a>
+            <a href="#"id="about8">Public Procurement Research Center</a>
+            <a href="#"id="about8">University Health Center</a>
+            <a href="#"id="about8">Registry Unit</a>
+            <a href="#"id="about8">Information and Communication Technology</a>
+            <a href="#"id="about8">Physical planning and development unit</a>
+            <a href="#"id="about8">Intelligent Property and  Technology and Transfer office</a>
+            <a href="#"id="about8">FUTO Bookshop Limited</a>
+            <a href="#"id="about8">UNIVERSITY Library</a>
+            <a href="#"id="about8">University security unit</a>
+         </div>
+             <div class="library">
+            <a href="#"id="about8">FUTO library</a>
+            <a href="#"id="about8">OPAC</a>
+            <a href="#"id="about8">E-Library</a>
+            <a href="#"id="about8">Institutional Repository</a>
+            <a href="#"id="about8">E-Learning</a>
+         </div>
+             <div class="portal">
+            <a href="#"id="about8">Student Portal</a>
+            <a href="#"id="about8">Prospective Student</a>
+            <a href="#"id="about8">FUTO Admission List</a>
+         </div>
+             <div class="grant">
+            <a href="#"id="aboutrr">Reasearch Grant</a>
+            <a href="#"id="about8">Student Reasearch</a>
+            <a href="#"id="about8">Research Facilities</a>
+            <a href="#"id="about8">FUTO Weather Repository</a>
+         </div>
+                <div class="Researchgrant">
+                    <a href="#">here resasgffcc</a>
+                    <a href="#">here resasgffcc</a>
+                    <a href="#">here resasgffcc</a>
+                </div>
+        <div class="slides">
+            <img src="futo design pic3.jpg" width="100%" height="500px" >
+            <img src="futo design pic2.jpg" width="100%" height="500px">
+            <img src="futo design pic5.jpg" width="100%" height="500px">
+            <img src="futo design pic.jpg"  width="100%" height="500px">
+       
+        </div>
+
+        <div class="latest">
+        <button id="how">How to Apply</button>
+        <button id="nerd">NERD Policy</button>
+        <button id="success">Success Guide</button>
+        </div>
+        <h3> ERASMUS+ EXCHANGE OPPORTUNITIES</h3>
+        <div class="erasmus">
+            <button id="program">Erasmus Program at IMT ATANTIQUE</button>
+            <button id="call">Call forApplication</button>
+            <button id="form">Program Application Form</button>
+        </div>
+        <h3>News & Event</h3>
+        <div class="photos">
+            <div class="img1">
+                <img src="futo design pic.jpg" width="430rem" height="350rem" id="img1">
+                <a href="#" id="vice">FUTO Vice-Chancellor,Prof Dozie Speaks FERMA'S Intervention to Rehabillitate University access Road</a>
+            </div>
+                <div class="img2">
+                <img src="WhatsApp Image 2025-10-26 at 13.00.04_3ade8e0c.jpg" width="430rem" height="350rem"id="img2">
+                <a href="#" id="futo">FUTO VC Calls for Collective Action on Environmental Sustainability</a>
+            </div>
+            <div class="img3">
+                <img src="futo design pic6.jpg" width="430rem" height="350rem"id="img3">
+                <a href="#" id="vc">FUTO VC Inspects University Hostels, Reaffirms Commitment to Students Welfare</a>
+            </div>
+            <div class="img4">
+                <img src="futo design pic3.jpg" width="430rem" height="350rem"id="img4">
+                <a href="#" id="your">Your welfare and Success, My Priority-FUTO VC to Students</a>
+            </div>
+            <div class="img5">
+                <img src="futo design pic2.jpg" width="430rem" height="350rem"id="img5">
+                <a href="#" id="one">One Day Research Findings Workshops: Determinants of Growth and Employment... </a>
+            </div>
+             <div class="img6">
+            <img src="futo design pic5.jpg" width="430rem" height="350rem"id="img6">
+            <a href="#" id="ceremony">38th Convocation Ceremony of the Federal University of Technology, Owerri(FUTO)</a>
+            </div>
+            <button id="see">See More News</button>
+        </div>
+        <h3>Key Institutional Data</h3>
+        <div class="institutional">
+            <div class="endownment">
+                <h5>Endownment Fund</h5>
+                <h5>Total Endownment Fund $50,000,000</h5>
+            </div>
+            <div class="budget">
+                <h4>FUTO annual budget allocation</h4>
+                <h5>Personal Cost</h5>
+                <h5>$17,878,787</h5>
+                <h5>Overhead Cost</h5>
+                <h5>$76,898,788</h5>
+                <h5>Capital Expenditure</h5>
+                <h5>$7,768,677</h5>
+            </div>
+              <div class="endownment">
+                <h5>Endownment Fund</h5>
+                <h5>Total Endownment Fund $50,000,000</h5>
+            </div>
+        </div>
+        <i class="fa-solid fa-arrow-up" id="icon"></i>
+        <div class="last">
+             <div class="last1">
+                <h4>FUTO annual budget allocation</h4>
+                <h5>Personal Cost</h5>
+                <h5>$17,878,787</h5>
+                <h5>Overhead Cost</h5>
+                <h5>$76,898,788</h5>
+                <h5>Capital Expenditure</h5>
+                <h5>$7,768,677</h5>
+            </div>
+             <div class="last2">
+                <h4>FUTO annual budget allocation</h4>
+                <h5>Personal Cost</h5>
+                <h5>$17,878,787</h5>
+                <h5>Overhead Cost</h5>
+                <h5>$76,898,788</h5>
+                <h5>Capital Expenditure</h5>
+                <h5>$7,768,677</h5>
+            </div>
+             <div class="last3">
+                <h4>FUTO annual budget allocation</h4>
+                <h5>Personal Cost</h5>
+                <h5>$17,878,787</h5>
+                <h5>Overhead Cost</h5>
+                <h5>$76,898,788</h5>
+                <h5>Capital Expenditure</h5>
+                <h5>$7,768,677</h5>
+            </div>
+             <div class="last4">
+                <h4>FUTO annual budget allocation</h4>
+                <h5>Personal Cost</h5>
+                <h5>$17,878,787</h5>
+                <h5>Overhead Cost</h5>
+                <h5>$76,898,788</h5>
+                <h5>Capital Expenditure</h5>
+                <h5>$7,768,677</h5>
+            </div>
+        </div>
+    </div>
+    <script>
+        let all1 = document.querySelector('#all1');
+        let us = document.querySelector('.us');
+
+        all1.addEventListener('click', function(){
+            us.classList.toggle('show')
+        })
+        let all2 = document.querySelector('#all2');
+        let office = document.querySelector('.office');
+
+        all2.addEventListener('click', function(){
+            office.classList.toggle('show')
+        })
+        let all3 = document.querySelector('#all3');
+        let Academics = document.querySelector('.Academics');
+
+        all3.addEventListener('click', function(){
+            Academics.classList.toggle('show')
+        })
+        let all4 = document.querySelector('#all4');
+        let unit = document.querySelector('.unit');
+
+        all4.addEventListener('click', function(){
+            unit.classList.toggle('show')
+        })
+        let all5 = document.querySelector('#all5');
+        let library = document.querySelector('.library');
+
+        all5.addEventListener('click', function(){
+            library.classList.toggle('show')
+        })
+        let all6 = document.querySelector('#all6');
+        let portal = document.querySelector('.portal');
+
+        all6.addEventListener('click', function(){
+            portal.classList.toggle('show')
+        })
+        let all7 = document.querySelector('#all7');
+        let grant = document.querySelector('.grant');
+
+        all7.addEventListener('click', function(){
+            grant.classList.toggle('show')
+        })
+        let aboutrr = document.querySelector('#aboutrr');
+        let Researchgrant = document.querySelector('.Researchgrant');
+
+        aboutrr.addEventListener('click', function(){
+            Researchgrant.classList.toggle('show')
+        })
+    </script>
+</body>
+</html>
