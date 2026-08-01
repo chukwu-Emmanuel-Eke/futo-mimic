@@ -259,202 +259,367 @@
             z-index: 9999;
             cursor: pointer;
         }
+  @media (max-width: 610px) {
+    .container{
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin: 0 !important;
+    }
+    .slider-wrapper,.slides,.photos,.institutional{
+     width: 100% !important;
+     padding: 0 !important;
+    }
+    .header{
+        width: 100% !important;
+    }
+  }
+  .key-div{
+    display: none;
+    position: relative;
+    flex-direction: column;
+  }
+  .key{
+    background-color: rgba(105, 103, 103, 0.842);
+    width: 100%;
+    min-height: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    left: 0;
+    /* position: absolute; */
+    padding: 2rem 4rem;
+   }
 
+  #data, #explore{
+  color: whitesmoke;
+   }
+
+   .overview{
+    min-height: 40rem;
+    background-color: whitesmoke;
+    width: 100%;
+  
+   }
+   .institute{
+    display: flex;
+    gap: 2rem;
+    margin: 2rem;
+   }
+   .div1,.div2,.div3,.div4,.div5{
+    background-color:  white;
+    width: 90%;
+    min-height: 10rem;
+    padding: 1rem 3rem;
+    margin: 1rem 1rem;
+    box-shadow: 10px 10px 30px 0px rgba(112, 111, 111, 0.562);
+   }
+   .gen-div{
+      grid-template-columns: 1fr 1fr ;
+      display: grid;
+      margin: 0.1rem;
+   }
+   #btn1{
+    background-color: green;
+    width: 10rem;
+    color: white;
+   }
+   #btn2{
+    color: green;
+    margin: 1rem;
+   }
+   #and{
+    color: rgb(95, 94, 94);
+    margin: 2rem;
+   }
+   .div3, .div4,.div5{
+    display: flex;
+    gap: 3rem;
+   }
+   #keyInstitutional{
+      background-color: yellow;
+         color: black;
+        border-radius: 5px;
+         border: none;
+         padding: 0.5rem 1rem;
+         font-size: 12px;
+        cursor: pointer;
+   }
+   .key-div.show{
+    display: flex;
+    flex-direction: column;
+   }
     </style>
 </head>
 <body>
 
     <!-- HEADER IS NOW INSIDE THE BODY -->
-    <header class="header">
-        <div class="header1">
-            <button>Key institutional Data</button>
-            <button>Futo Admission List</button>
-            <a href="#">News</a>
-            <a href="#">NUC</a>
-            <a href="#">TETFUND</a>
-            <a href="#">Transcript</a>
-            <a href="#">Academic</a>
-            <a href="#">Calender</a>
-            <a href="#">Email</a>
-            <a href="#">Alumni</a>
-            <div class="search" style="color: white;">&#x1F50E</div>
-            
-            <!-- First dropdown wrapped properly -->
-            <div class="nav-item-wrapper">
-                <a href="#" id="all6">Students</a>
-                <div class="portal dropdown-menu">
-                    <a href="#">Student Portal</a>
-                    <a href="#">Prospective Student</a>
-                    <a href="#">FUTO Admission List</a>
+    <div class="landing-container">
+        <header class="header">
+            <div class="header1">
+                <button id="keyInstitutional">Key institutional Data</button>
+                <button>Futo Admission List</button>
+                <a href="#">News</a>
+                <a href="#">NUC</a>
+                <a href="#">TETFUND</a>
+                <a href="#">Transcript</a>
+                <a href="#">Academic</a>
+                <a href="#">Calender</a>
+                <a href="#">Email</a>
+                <a href="#">Alumni</a>
+                <div class="search" style="color: white;">&#x1F50E</div>
+                
+                <!-- First dropdown wrapped properly -->
+                <div class="nav-item-wrapper">
+                    <a href="#" id="all6">Students</a>
+                    <div class="portal dropdown-menu">
+                        <a href="#">Student Portal</a>
+                        <a href="#">Prospective Student</a>
+                        <a href="#">FUTO Admission List</a>
+                    </div>
+                </div>
+                <button id="student">Student Portal</button>
+            </div>
+
+            <div class="header2">
+                <img src="download (3).jpeg" width="40px" height="40px" alt="FUTO Logo">
+                <div class="federal">
+                    <h4>THE FEDERAL UNIVERSITY</h4>
+                    <h4>OF TECHNOLOGY OWERRI</h4>
+                </div>
+                <button id="center">Center of Excellence</button>
+                
+                <!-- All dropdowns are now safely anchored in these wrappers -->
+                <div class="nav-item-wrapper">
+                    <a href="#" id="all1">Who We Are</a>
+                    <div class="us dropdown-menu">
+                        <a href="#">About Us</a>
+                        <a href="#">FUTO Anthem</a>
+                    </div>
+                </div>
+
+                <div class="nav-item-wrapper">
+                    <a href="#" id="all2">Adminstration</a>
+                    <div class="office dropdown-menu">
+                        <a href="#">Office of the vice-chancellor</a>
+                        <a href="#">Office of DVC(Admin)</a>
+                        <a href="#">Office of the Bursar</a>
+                    </div>
+                </div>
+
+                <div class="nav-item-wrapper">
+                    <a href="#" id="all3">Academics</a>
+                    <div class="Academics dropdown-menu">
+                        <a href="#">Schools</a>
+                        <a href="#">Center of Excellence</a>
+                        <a href="#">Institutes</a>
+                    </div>
+                </div>
+
+                <div class="nav-item-wrapper">
+                    <a href="#" id="all4">Units/Centers</a>
+                    <div class="unit dropdown-menu">
+                        <a href="#"id="about8">Examination Unit</a>
+                        <a href="#"id="about8">FUTO Alumni Association National Secretariat</a>
+                        <a href="#"id="about8">Public Procurement Research Center</a>
+                        <a href="#"id="about8">University Health Center</a>
+                        <a href="#"id="about8">Registry Unit</a>
+                        <a href="#"id="about8">Information and Communication Technology</a>
+                        <a href="#"id="about8">Physical planning and development unit</a>
+                        <a href="#"id="about8">Intelligent Property and  Technology and Transfer office</a>
+                        <a href="#"id="about8">FUTO Bookshop Limited</a>
+                        <a href="#"id="about8">UNIVERSITY Library</a>
+                        <a href="#"id="about8">University security unit</a>
+                    </div>
+                </div>
+
+                <div class="nav-item-wrapper">
+                    <a href="#" id="all5">Library</a>
+                    <div class="library dropdown-menu">
+                        <a href="#">FUTO library</a>
+                        <a href="#">OPAC</a>
+                        <a href="#">E-Library</a>
+                    </div>
+                </div>
+
+                <div class="nav-item-wrapper">
+                    <a href="#" id="all7">Research</a>
+                    <div class="grant dropdown-menu">
+                        <a href="#">Research Grant</a>
+                        <a href="#">Student Research</a>
+                        <a href="#">Research Facilities</a>
+                    </div>
                 </div>
             </div>
-            <button id="student">Student Portal</button>
-        </div>
+        </header>
 
-        <div class="header2">
-            <img src="download (3).jpeg" width="40px" height="40px" alt="FUTO Logo">
-            <div class="federal">
-                <h4>THE FEDERAL UNIVERSITY</h4>
-                <h4>OF TECHNOLOGY OWERRI</h4>
-            </div>
-            <button id="center">Center of Excellence</button>
-            
-            <!-- All dropdowns are now safely anchored in these wrappers -->
-            <div class="nav-item-wrapper">
-                <a href="#" id="all1">Who We Are</a>
-                <div class="us dropdown-menu">
-                    <a href="#">About Us</a>
-                    <a href="#">FUTO Anthem</a>
+        <div class="container">
+            <div class="page-container">
+                
+                <!-- Slider properly contained -->
+                <div class="slider-wrapper">
+                    <div class="slides">
+                        <img src="futo design pic3.jpg" alt="Slide 1">
+                        <img src="futo design pic2.jpg" alt="Slide 2">
+                        <img src="futo design pic5.jpg" alt="Slide 3">
+                        <img src="futo design pic.jpg"  alt="Slide 4">
+                    </div>
+                </div>
+
+                <div class="latest">
+                    <button>How to Apply</button>
+                    <button>NERD Policy</button>
+                    <button>Success Guide</button>
+                </div>
+
+                <h3>ERASMUS+ EXCHANGE OPPORTUNITIES</h3>
+                <div class="erasmus">
+                    <button>Erasmus Program at IMT ATANTIQUE</button>
+                    <button>Call for Application</button>
+                    <button>Program Application Form</button>
+                </div>
+
+                <h3>News & Event</h3>
+                <!-- CSS Grid handles responsiveness automatically here -->
+                <div class="photos">
+                    <div class="img-card">
+                        <img src="futo design pic.jpg" alt="News 1">
+                        <a href="#">FUTO Vice-Chancellor, Prof Dozie Speaks FERMA'S Intervention</a>
+                    </div>
+                    <div class="img-card">
+                        <img src="WhatsApp Image 2025-10-26 at 13.00.04_3ade8e0c.jpg" alt="News 2">
+                        <a href="#">FUTO VC Calls for Collective Action on Environmental Sustainability</a>
+                    </div>
+                    <div class="img-card">
+                        <img src="futo design pic6.jpg" alt="News 3">
+                        <a href="#">FUTO VC Inspects University Hostels, Reaffirms Commitment</a>
+                    </div>
+                    <div class="img-card">
+                        <img src="futo design pic3.jpg" alt="News 4">
+                        <a href="#">Your welfare and Success, My Priority-FUTO VC to Students</a>
+                    </div>
+                    <button id="see">See More News</button>
+                </div>
+
+                <h3>Key Institutional Data</h3>
+                <div class="institutional">
+                    <div class="data-card">
+                        <h5>Endownment Fund</h5>
+                        <h5>Total Endownment Fund $50,000,000</h5>
+                    </div>
+                    <div class="data-card">
+                        <h4>FUTO annual budget allocation</h4>
+                        <h5>Personal Cost: $17,878,787</h5>
+                        <h5>Overhead Cost: $76,898,788</h5>
+                        <h5>Capital Expenditure: $7,768,677</h5>
+                    </div>
+                    <div class="data-card">
+                        <h5>Endownment Fund</h5>
+                        <h5>Total Endownment Fund $50,000,000</h5>
+                    </div>
                 </div>
             </div>
+            <i class="fa-solid fa-arrow-up" id="icon"></i>
 
-            <div class="nav-item-wrapper">
-                <a href="#" id="all2">Adminstration</a>
-                <div class="office dropdown-menu">
-                    <a href="#">Office of the vice-chancellor</a>
-                    <a href="#">Office of DVC(Admin)</a>
-                    <a href="#">Office of the Bursar</a>
-                </div>
-            </div>
 
-            <div class="nav-item-wrapper">
-                <a href="#" id="all3">Academics</a>
-                <div class="Academics dropdown-menu">
-                    <a href="#">Schools</a>
-                    <a href="#">Center of Excellence</a>
-                    <a href="#">Institutes</a>
-                </div>
-            </div>
 
-            <div class="nav-item-wrapper">
-                <a href="#" id="all4">Units/Centers</a>
-                <div class="unit dropdown-menu">
-                    <a href="#"id="about8">Examination Unit</a>
-                    <a href="#"id="about8">FUTO Alumni Association National Secretariat</a>
-                    <a href="#"id="about8">Public Procurement Research Center</a>
-                    <a href="#"id="about8">University Health Center</a>
-                    <a href="#"id="about8">Registry Unit</a>
-                    <a href="#"id="about8">Information and Communication Technology</a>
-                    <a href="#"id="about8">Physical planning and development unit</a>
-                    <a href="#"id="about8">Intelligent Property and  Technology and Transfer office</a>
-                    <a href="#"id="about8">FUTO Bookshop Limited</a>
-                    <a href="#"id="about8">UNIVERSITY Library</a>
-                    <a href="#"id="about8">University security unit</a>
-                </div>
-            </div>
 
-            <div class="nav-item-wrapper">
-                <a href="#" id="all5">Library</a>
-                <div class="library dropdown-menu">
-                    <a href="#">FUTO library</a>
-                    <a href="#">OPAC</a>
-                    <a href="#">E-Library</a>
-                </div>
-            </div>
 
-            <div class="nav-item-wrapper">
-                <a href="#" id="all7">Research</a>
-                <div class="grant dropdown-menu">
-                    <a href="#">Research Grant</a>
-                    <a href="#">Student Research</a>
-                    <a href="#">Research Facilities</a>
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <div class="container">
-        
-        <!-- Slider properly contained -->
-        <div class="slider-wrapper">
-            <div class="slides">
-                <img src="futo design pic3.jpg" alt="Slide 1">
-                <img src="futo design pic2.jpg" alt="Slide 2">
-                <img src="futo design pic5.jpg" alt="Slide 3">
-                <img src="futo design pic.jpg"  alt="Slide 4">
-            </div>
-        </div>
-
-        <div class="latest">
-            <button>How to Apply</button>
-            <button>NERD Policy</button>
-            <button>Success Guide</button>
-        </div>
-
-        <h3>ERASMUS+ EXCHANGE OPPORTUNITIES</h3>
-        <div class="erasmus">
-            <button>Erasmus Program at IMT ATANTIQUE</button>
-            <button>Call for Application</button>
-            <button>Program Application Form</button>
-        </div>
-
-        <h3>News & Event</h3>
-        <!-- CSS Grid handles responsiveness automatically here -->
-        <div class="photos">
-            <div class="img-card">
-                <img src="futo design pic.jpg" alt="News 1">
-                <a href="#">FUTO Vice-Chancellor, Prof Dozie Speaks FERMA'S Intervention</a>
-            </div>
-            <div class="img-card">
-                <img src="WhatsApp Image 2025-10-26 at 13.00.04_3ade8e0c.jpg" alt="News 2">
-                <a href="#">FUTO VC Calls for Collective Action on Environmental Sustainability</a>
-            </div>
-            <div class="img-card">
-                <img src="futo design pic6.jpg" alt="News 3">
-                <a href="#">FUTO VC Inspects University Hostels, Reaffirms Commitment</a>
-            </div>
-            <div class="img-card">
-                <img src="futo design pic3.jpg" alt="News 4">
-                <a href="#">Your welfare and Success, My Priority-FUTO VC to Students</a>
-            </div>
-            <button id="see">See More News</button>
-        </div>
-
-        <h3>Key Institutional Data</h3>
-        <div class="institutional">
-            <div class="data-card">
-                <h5>Endownment Fund</h5>
-                <h5>Total Endownment Fund $50,000,000</h5>
-            </div>
-            <div class="data-card">
-                <h4>FUTO annual budget allocation</h4>
-                <h5>Personal Cost: $17,878,787</h5>
-                <h5>Overhead Cost: $76,898,788</h5>
-                <h5>Capital Expenditure: $7,768,677</h5>
-            </div>
-            <div class="data-card">
-                <h5>Endownment Fund</h5>
-                <h5>Total Endownment Fund $50,000,000</h5>
-            </div>
-        </div>
-        
-        <i class="fa-solid fa-arrow-up" id="icon"></i>
-
-        <div class="last">
-            <div>
-                <h4>Budget Allocation 1</h4>
-                <p>Personal Cost: $17,878,787</p>
-                <p>Overhead Cost: $76,898,788</p>
-            </div>
-            <div>
-                <h4>Budget Allocation 2</h4>
-                <p>Personal Cost: $17,878,787</p>
-                <p>Overhead Cost: $76,898,788</p>
-            </div>
-            <div>
-                <h4>Budget Allocation 3</h4>
-                <p>Personal Cost: $17,878,787</p>
-                <p>Overhead Cost: $76,898,788</p>
-            </div>
-            <div>
-                <h4>Budget Allocation 4</h4>
-                <p>Personal Cost: $17,878,787</p>
-                <p>Overhead Cost: $76,898,788</p>
-            </div>
-        </div>
-
+<div class="key-div">
+     <div class="key">
+        <h2 id="data">Key Institutional Data</h2>
+        <h5 id="explore">Explore detailed insight into FUTO's budget allocations, </h5>
+        <h5 id="explore">research funding,endownments, </h5>
+        <h5 id="explore">and student demographics </h5>
     </div>
+    <div class="overview">
+        <h3>Data Overview</h3>
+        <div class="institute">
+            <button id="btn1">2025</button>
+            <h5 id="btn2">Institutional Data for 2025</h5>
+        </div>
+        <h5 id="and">key statistics and financial for the year 2026 at FUTO,including budget, grants,endownment and students population</h5>
 
+        <div class="gen-div">
+            <div class="div1">
+                <h3> Endownment Fund</h3>
+                <h3>Total Endownment Fund   $37,687,468,768</h3>
+            </div>
+            <div class="div2">
+                <h3>Tetfund Allocation</h3>
+                <h3>Total Tetfund Allocation $45,567,677</h3>
+            </div>
+            <div class="div3">
+                <h3>Research Grant Revenue</h3>
+                <div class="foriegn">
+                <h3>FOREIGN</h3>
+                <h3>$33,883,875</h3>
+                </div>
+                <div class="local">
+                    <h3>LOCAL</h3>
+                    <h3>$56,899,879</h3>
+                </div>
+            </div>
+            <div class="div4">
+                <h3>Student Population</h3>
+                <div class="foriegn">
+                <h3>FOREIGN</h3>
+                <h3>$33,883,875</h3>
+                </div>
+                <div class="local">
+                    <h3>LOCAL</h3>
+                    <h3>$56,899,879</h3>
+                </div>
+            </div>
+            <div class="div5">
+                <h3>FUTO Annual Budget</h3>
+                <div class="foriegn">
+                <h3>FOREIGN</h3>
+                <h3>$33,883,875</h3>
+                </div>
+                <div class="local">
+                    <h3>LOCAL</h3>
+                    <h3>$56,899,879</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
+            <div class="last">
+                <div>
+                    <h4>Budget Allocation 1</h4>
+                    <p>Personal Cost: $17,878,787</p>
+                    <p>Overhead Cost: $76,898,788</p>
+                </div>
+                <div>
+                    <h4>Budget Allocation 2</h4>
+                    <p>Personal Cost: $17,878,787</p>
+                    <p>Overhead Cost: $76,898,788</p>
+                </div>
+                <div>
+                    <h4>Budget Allocation 3</h4>
+                    <p>Personal Cost: $17,878,787</p>
+                    <p>Overhead Cost: $76,898,788</p>
+                </div>
+                <div>
+                    <h4>Budget Allocation 4</h4>
+                    <p>Personal Cost: $17,878,787</p>
+                    <p>Overhead Cost: $76,898,788</p>
+                </div>
+            </div>
+
+        </div>
+</div>
+
+
+  
     <!-- Script tag closed properly, logic preserved -->
     <script>
         document.querySelector('#all1').addEventListener('click', function(e){
@@ -498,6 +663,11 @@
 document.addEventListener('click', () => {
     document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
 });
+ document.querySelector('#keyInstitutional').addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelector('.page-container').style.display = 'none';
+    document.querySelector('.key-div').style.display = 'block';
+ })
 
  
     </script>
