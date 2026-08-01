@@ -106,7 +106,7 @@
         /* 3. RELATIVE ANCHORING FOR DROPDOWNS */
         .nav-item-wrapper {
             position: relative; /* This acts as the anchor for the dropdowns */
-            display: inline-block;
+            /* display: inline-block; */
         }
 
         .dropdown-menu {
@@ -193,7 +193,7 @@
         /* This automatically scales columns based on screen size! */
         .photos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
             gap: 2rem;
             padding: 2rem;
             width: 100%;
@@ -259,6 +259,7 @@
             z-index: 9999;
             cursor: pointer;
         }
+
     </style>
 </head>
 <body>
@@ -328,9 +329,17 @@
             <div class="nav-item-wrapper">
                 <a href="#" id="all4">Units/Centers</a>
                 <div class="unit dropdown-menu">
-                    <a href="#">Examination Unit</a>
-                    <a href="#">University Health Center</a>
-                    <a href="#">Registry Unit</a>
+                    <a href="#"id="about8">Examination Unit</a>
+                    <a href="#"id="about8">FUTO Alumni Association National Secretariat</a>
+                    <a href="#"id="about8">Public Procurement Research Center</a>
+                    <a href="#"id="about8">University Health Center</a>
+                    <a href="#"id="about8">Registry Unit</a>
+                    <a href="#"id="about8">Information and Communication Technology</a>
+                    <a href="#"id="about8">Physical planning and development unit</a>
+                    <a href="#"id="about8">Intelligent Property and  Technology and Transfer office</a>
+                    <a href="#"id="about8">FUTO Bookshop Limited</a>
+                    <a href="#"id="about8">UNIVERSITY Library</a>
+                    <a href="#"id="about8">University security unit</a>
                 </div>
             </div>
 
@@ -450,32 +459,47 @@
     <script>
         document.querySelector('#all1').addEventListener('click', function(e){
             e.preventDefault();
+            e.stopPropagation();
             document.querySelector('.us').classList.toggle('show');
+
         });
         document.querySelector('#all2').addEventListener('click', function(e){
             e.preventDefault();
+            e.stopPropagation();
             document.querySelector('.office').classList.toggle('show');
         });
         document.querySelector('#all3').addEventListener('click', function(e){
             e.preventDefault();
+            e.stopPropagation();
             document.querySelector('.Academics').classList.toggle('show');
         });
         document.querySelector('#all4').addEventListener('click', function(e){
             e.preventDefault();
+            e.stopPropagation();
             document.querySelector('.unit').classList.toggle('show');
         });
         document.querySelector('#all5').addEventListener('click', function(e){
             e.preventDefault();
+            e.stopPropagation();
             document.querySelector('.library').classList.toggle('show');
         });
         document.querySelector('#all6').addEventListener('click', function(e){
             e.preventDefault();
+            e.stopPropagation();
             document.querySelector('.portal').classList.toggle('show');
         });
         document.querySelector('#all7').addEventListener('click', function(e){
             e.preventDefault();
+            e.stopPropagation();
             document.querySelector('.grant').classList.toggle('show');
         });
+
+
+document.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
+});
+
+ 
     </script>
 </body>
 </html>
