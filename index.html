@@ -22,6 +22,39 @@
             background-color: whitesmoke;
         }
 
+       .preloader{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        z-index: 999999;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+       }
+
+       .preloader-hidden{
+        opacity: 0;
+        visibility: hidden;
+       }
+       .spinning{
+        position: absolute;
+        width: 165px;
+        height: 165px;
+        border: 4px solid darkgreen;
+        border-top: 4px solid black;
+        border-bottom: 4px solid yellow;
+        border-radius: 50%;
+        z-index: 100000;
+        animation: spin 1.2s linear infinite;
+       }
+       @keyframes spin {
+              0%{transform: rotate(0deg);}
+            100%{transform: rotate(360deg);}
+       }
         a {
             text-decoration: none;
             color: white;
@@ -384,6 +417,10 @@
 <body>
 
     <div class="landing-container">
+        <div class="preloader">
+            <div class="spinning"></div>
+            <img src="download (3).jpeg">
+        </div>
         <header class="header">
             <div class="header1">
                 <button id="keyInstitutional">Key institutional Data</button>
@@ -746,6 +783,12 @@
             document.querySelector('.key-div').style.display = 'none';
             document.querySelector('.admission-list').style.display = 'block';
         });
+       let preloader = document.querySelector('.preloader')
+        window.addEventListener("load", function(){
+            setTimeout(function(){
+                preloader.classList.add('preloader-hidden');
+            }, 10000)
+        })
     </script>
 </body>
 </html>
