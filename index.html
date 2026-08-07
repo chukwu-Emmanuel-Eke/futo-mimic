@@ -14,7 +14,6 @@
             box-sizing: border-box;
         }
         
-        /* Fixed: Replaced 100vw/100vh to avoid scrollbar width overflow */
         html, body {
             width: 100%;
             max-width: 100%;
@@ -39,21 +38,19 @@
             cursor: pointer;
         }
 
-        /* Responsive Images */
         img {
             max-width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Text Overflow Protection */
         h1, h2, h3, h4, h5, h6 {
             max-width: 100%;
             overflow-wrap: break-word;
             word-wrap: break-word;
         }
 
-        /* 2. HEADER FIXED POSITIONING */
+        /* 2. FIXED HEADER POSITIONING */
         .header {
             position: fixed;
             z-index: 1000;
@@ -62,19 +59,19 @@
             width: 100%;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         /* Header 1 (Top Green Bar) */
         .header1 {
             background-color: rgba(3, 66, 3, 0.95);
             width: 100%;
-            min-height: 3.4rem;
             padding: 0.5rem 1rem;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         #student {
@@ -86,14 +83,12 @@
         .header2 {
             background-color: white;
             width: 100%;
-            min-height: 4rem;
             padding: 0.5rem 1rem;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .header2 a {
@@ -143,18 +138,20 @@
             padding-bottom: 5px;
         }
 
-        /* 4. MAIN CONTENT CONTAINER */
+        /* 4. DYNAMIC MARGIN/PADDING FOR CONTENT BELOW FIXED HEADER */
         .container {
-            padding-top: 10rem;
+            /* Default offset for desktop screens where header wraps minimally */
+            padding-top: 8.5rem; 
             width: 100%;
             max-width: 100%;
         }
 
-        /* Slider */
+        /* Responsive Slider Setup */
         .slider-wrapper {
             width: 100%;
             max-width: 100%;
             overflow: hidden;
+            position: relative;
         }
         
         .slides {
@@ -162,11 +159,18 @@
             width: 400%;
             animation: slide 20s infinite;
         }
+
+        .slides .slide-item {
+            width: 25%;
+            flex-shrink: 0;
+        }
         
         .slides img {
-            width: 25%;
-            height: 400px;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 7;
             object-fit: cover;
+            display: block;
         }
 
         @keyframes slide {
@@ -201,7 +205,6 @@
         }
 
         /* 5. RESPONSIVE GRIDS */
-        /* Fixed: Reduced minmax from 600px to 280px to accommodate mobile devices */
         .photos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -230,7 +233,6 @@
             padding: 10px 30px;
         }
 
-        /* Institutional Data Grid */
         .institutional {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -251,7 +253,6 @@
             justify-content: center;
         }
 
-        /* Footer Section */
         .last {
             background-color: darkgreen;
             color: white;
@@ -273,7 +274,6 @@
             cursor: pointer;
         }
 
-        /* Fixed: Responsive layout adjustments for key-div grids */
         .key-div, .admission-list {
             display: none;
             width: 100%;
@@ -355,19 +355,34 @@
             cursor: pointer;
         }
 
-        @media (max-width: 610px) {
+        /* 6. BREAKPOINTS TO PREVENT FIXED HEADER OVERLAP */
+        @media (max-width: 1200px) {
             .container {
-                padding-top: 13rem;
+                padding-top: 10rem; /* Increased offset as links wrap */
+            }
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                padding-top: 13.5rem; /* Handles multi-line wrapping in header1 + header2 */
             }
             .slides img {
-                height: 250px;
+                aspect-ratio: 16 / 9;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding-top: 17.5rem; /* Full vertical alignment adjustment for mobile */
+            }
+            .slides img {
+                aspect-ratio: 4 / 3;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER IS NOW INSIDE THE BODY -->
     <div class="landing-container">
         <header class="header">
             <div class="header1">
@@ -382,9 +397,8 @@
                 <a href="#">Email</a>
                 <a href="#">Alumni</a>
                 <a href="futo-staff-portal.html">Staff Portal</a>
-                <div class="search" style="color: white;">&#x1F50E</div>
+                <div class="search" style="color: white;">&#x1F50E;</div>
                 
-                <!-- First dropdown wrapped properly -->
                 <div class="nav-item-wrapper">
                     <a href="#" id="all6">Students</a>
                     <div class="portal dropdown-menu">
@@ -404,7 +418,6 @@
                 </div>
                 <a href="center-excellence.html"><button id="center">Center of Excellence</button></a>
                 
-                <!-- All dropdowns are now safely anchored in these wrappers -->
                 <div class="nav-item-wrapper">
                     <a href="#" id="all1">Who We Are</a>
                     <div class="us dropdown-menu">
@@ -414,7 +427,7 @@
                 </div>
 
                 <div class="nav-item-wrapper">
-                    <a href="#" id="all2">Adminstration</a>
+                    <a href="#" id="all2">Administration</a>
                     <div class="office dropdown-menu">
                         <a href="#">Office of the vice-chancellor</a>
                         <a href="#">Office of DVC(Admin)</a>
@@ -434,17 +447,17 @@
                 <div class="nav-item-wrapper">
                     <a href="#" id="all4">Units/Centers</a>
                     <div class="unit dropdown-menu">
-                        <a href="#"id="about8">Examination Unit</a>
-                        <a href="#"id="about8">FUTO Alumni Association National Secretariat</a>
-                        <a href="#"id="about8">Public Procurement Research Center</a>
-                        <a href="#"id="about8">University Health Center</a>
-                        <a href="#"id="about8">Registry Unit</a>
-                        <a href="#"id="about8">Information and Communication Technology</a>
-                        <a href="#"id="about8">Physical planning and development unit</a>
-                        <a href="#"id="about8">Intelligent Property and  Technology and Transfer office</a>
-                        <a href="#"id="about8">FUTO Bookshop Limited</a>
-                        <a href="#"id="about8">UNIVERSITY Library</a>
-                        <a href="#"id="about8">University security unit</a>
+                        <a href="#">Examination Unit</a>
+                        <a href="#">FUTO Alumni Association National Secretariat</a>
+                        <a href="#">Public Procurement Research Center</a>
+                        <a href="#">University Health Center</a>
+                        <a href="#">Registry Unit</a>
+                        <a href="#">Information and Communication Technology</a>
+                        <a href="#">Physical planning and development unit</a>
+                        <a href="#">Intelligent Property and Technology and Transfer office</a>
+                        <a href="#">FUTO Bookshop Limited</a>
+                        <a href="#">UNIVERSITY Library</a>
+                        <a href="#">University security unit</a>
                     </div>
                 </div>
 
@@ -470,14 +483,12 @@
 
         <div class="container">
             <div class="page-container">
-                
-                <!-- Slider properly contained -->
                 <div class="slider-wrapper">
                     <div class="slides">
-                        <img src="futo design pic3.jpg" alt="Slide 1">
-                        <img src="futo design pic2.jpg" alt="Slide 2">
-                        <img src="futo design pic5.jpg" alt="Slide 3">
-                        <img src="futo design pic.jpg"  alt="Slide 4">
+                        <div class="slide-item"><img src="futo design pic3.jpg" alt="Slide 1"></div>
+                        <div class="slide-item"><img src="futo design pic2.jpg" alt="Slide 2"></div>
+                        <div class="slide-item"><img src="futo design pic5.jpg" alt="Slide 3"></div>
+                        <div class="slide-item"><img src="futo design pic.jpg"  alt="Slide 4"></div>
                     </div>
                 </div>
 
@@ -495,14 +506,13 @@
                 </div>
 
                 <h3>News & Event</h3>
-                <!-- CSS Grid handles responsiveness automatically here -->
                 <div class="photos">
                     <div class="img-card">
                         <img src="futo design pic.jpg" alt="News 1">
                         <a href="#">FUTO Vice-Chancellor, Prof Dozie Speaks FERMA'S Intervention</a>
                     </div>
                     <div class="img-card">
-                        <img src=" WhatsApp Image 2025-10-26 at 13.00.03_bb992254.jpg"alt="News 2">
+                        <img src=" WhatsApp Image 2025-10-26 at 13.00.03_bb992254.jpg" alt="News 2">
                         <a href="#">FUTO VC Calls for Collective Action on Environmental Sustainability</a>
                     </div>
                     <div class="img-card">
@@ -519,8 +529,8 @@
                 <h3>Key Institutional Data</h3>
                 <div class="institutional">
                     <div class="data-card">
-                        <h5>Endownment Fund</h5>
-                        <h5>Total Endownment Fund $50,000,000</h5>
+                        <h5>Endowment Fund</h5>
+                        <h5>Total Endowment Fund $50,000,000</h5>
                     </div>
                     <div class="data-card">
                         <h4>FUTO annual budget allocation</h4>
@@ -529,144 +539,134 @@
                         <h5>Capital Expenditure: $7,768,677</h5>
                     </div>
                     <div class="data-card">
-                        <h5>Endownment Fund</h5>
-                        <h5>Total Endownment Fund $50,000,000</h5>
+                        <h5>Endowment Fund</h5>
+                        <h5>Total Endowment Fund $50,000,000</h5>
                     </div>
                 </div>
             </div>
             <i class="fa-solid fa-arrow-up" id="icon"></i>
 
-
-
-
-<div class="key-div">
-     <div class="key">
-        <h2 id="data">Key Institutional Data</h2>
-        <h5 id="explore">Explore detailed insight into FUTO's budget allocations, </h5>
-        <h5 id="explore">research funding,endownments, </h5>
-        <h5 id="explore">and student demographics </h5>
-    </div>
-    <div class="overview">
-        <h3>Data Overview</h3>
-        <div class="institute">
-            <button id="btn1">2025</button>
-            <h5 id="btn2">Institutional Data for 2025</h5>
-        </div>
-        <h5 id="and">key statistics and financial for the year 2026 at FUTO,including budget, grants,endownment and students population</h5>
-
-        <div class="gen-div">
-            <div class="div1">
-                <h3> Endownment Fund</h3>
-                <h3>Total Endownment Fund   $37,687,468,768</h3>
-            </div>
-            <div class="div2">
-                <h3>Tetfund Allocation</h3>
-                <h3>Total Tetfund Allocation $45,567,677</h3>
-            </div>
-            <div class="div3">
-                <h3>Research Grant Revenue</h3>
-                <div class="foriegn">
-                <h3>FOREIGN</h3>
-                <h3>$33,883,875</h3>
+            <div class="key-div">
+                <div class="key">
+                    <h2 id="data">Key Institutional Data</h2>
+                    <h5 id="explore">Explore detailed insight into FUTO's budget allocations, </h5>
+                    <h5 id="explore">research funding, endowments, </h5>
+                    <h5 id="explore">and student demographics </h5>
                 </div>
-                <div class="local">
-                    <h3>LOCAL</h3>
-                    <h3>$56,899,879</h3>
-                </div>
-            </div>
-            <div class="div4">
-                <h3>Student Population</h3>
-                <div class="foriegn">
-                <h3>FOREIGN</h3>
-                <h3>$33,883,875</h3>
-                </div>
-                <div class="local">
-                    <h3>LOCAL</h3>
-                    <h3>$56,899,879</h3>
-                </div>
-            </div>
-            <div class="div5">
-                <h3>FUTO Annual Budget</h3>
-                <div class="foriegn">
-                <h3>FOREIGN</h3>
-                <h3>$33,883,875</h3>
-                </div>
-                <div class="local">
-                    <h3>LOCAL</h3>
-                    <h3>$56,899,879</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
+                <div class="overview">
+                    <h3>Data Overview</h3>
+                    <div class="institute">
+                        <button id="btn1">2025</button>
+                        <h5 id="btn2">Institutional Data for 2025</h5>
+                    </div>
+                    <h5 id="and">key statistics and financial for the year 2026 at FUTO,including budget, grants,endowment and students population</h5>
 
-
-  
-<div class="admission-list">
-     <div class="key">
-        <h2 id="data">Admission List</h2>
-        <h5 id="explore">Explore detailed insight into FUTO's budget allocations, </h5>
-        <h5 id="explore">research funding,endownments, </h5>
-        <h5 id="explore">and student demographics </h5>
-    </div>
-    <div class="overview">
-        <h3>Admission list</h3>
-        <div class="institute">
-            <button id="btn1">2025</button>
-            <h5 id="btn2">Institutional Data for 2025</h5>
-        </div>
-        <h5 id="and">key statistics and financial for the year 2026 at FUTO,including budget, grants,endownment and students population</h5>
-
-        <div class="gen-div">
-            <div class="div1">
-                <h3> Batch A</h3>
-                <h3>Total Endownment Fund   $37,687,468,768</h3>
-            </div>
-            <div class="div2">
-                <h3>Batch B</h3>
-                <h3>Total No of Student Admitted on Batch B</h3>
-            </div>
-            <div class="div3">
-                <h3>Batch C</h3>
-                <div class="foriegn">
-                <h3>FOREIGN</h3>
-                <h3>$33,883,875</h3>
-                </div>
-                <div class="local">
-                    <h3>LOCAL</h3>
-                    <h3>$56,899,879</h3>
+                    <div class="gen-div">
+                        <div class="div1">
+                            <h3> Endowment Fund</h3>
+                            <h3>Total Endowment Fund $37,687,468,768</h3>
+                        </div>
+                        <div class="div2">
+                            <h3>Tetfund Allocation</h3>
+                            <h3>Total Tetfund Allocation $45,567,677</h3>
+                        </div>
+                        <div class="div3">
+                            <h3>Research Grant Revenue</h3>
+                            <div class="foriegn">
+                                <h3>FOREIGN</h3>
+                                <h3>$33,883,875</h3>
+                            </div>
+                            <div class="local">
+                                <h3>LOCAL</h3>
+                                <h3>$56,899,879</h3>
+                            </div>
+                        </div>
+                        <div class="div4">
+                            <h3>Student Population</h3>
+                            <div class="foriegn">
+                                <h3>FOREIGN</h3>
+                                <h3>$33,883,875</h3>
+                            </div>
+                            <div class="local">
+                                <h3>LOCAL</h3>
+                                <h3>$56,899,879</h3>
+                            </div>
+                        </div>
+                        <div class="div5">
+                            <h3>FUTO Annual Budget</h3>
+                            <div class="foriegn">
+                                <h3>FOREIGN</h3>
+                                <h3>$33,883,875</h3>
+                            </div>
+                            <div class="local">
+                                <h3>LOCAL</h3>
+                                <h3>$56,899,879</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="div4">
-                <h3>Merit List</h3>
-                <div class="foriegn">
-                <h3>FOREIGN</h3>
-                <h3>$33,883,875</h3>
+
+            <div class="admission-list">
+                <div class="key">
+                    <h2 id="data">Admission List</h2>
+                    <h5 id="explore">Explore detailed insight into FUTO's budget allocations, </h5>
+                    <h5 id="explore">research funding, endowments, </h5>
+                    <h5 id="explore">and student demographics </h5>
                 </div>
-                <div class="local">
-                    <h3>LOCAL</h3>
-                    <h3>$56,899,879</h3>
+                <div class="overview">
+                    <h3>Admission list</h3>
+                    <div class="institute">
+                        <button id="btn1">2025</button>
+                        <h5 id="btn2">Institutional Data for 2025</h5>
+                    </div>
+                    <h5 id="and">key statistics and financial for the year 2026 at FUTO,including budget, grants,endowment and students population</h5>
+
+                    <div class="gen-div">
+                        <div class="div1">
+                            <h3> Batch A</h3>
+                            <h3>Total Endowment Fund $37,687,468,768</h3>
+                        </div>
+                        <div class="div2">
+                            <h3>Batch B</h3>
+                            <h3>Total No of Student Admitted on Batch B</h3>
+                        </div>
+                        <div class="div3">
+                            <h3>Batch C</h3>
+                            <div class="foriegn">
+                                <h3>FOREIGN</h3>
+                                <h3>$33,883,875</h3>
+                            </div>
+                            <div class="local">
+                                <h3>LOCAL</h3>
+                                <h3>$56,899,879</h3>
+                            </div>
+                        </div>
+                        <div class="div4">
+                            <h3>Merit List</h3>
+                            <div class="foriegn">
+                                <h3>FOREIGN</h3>
+                                <h3>$33,883,875</h3>
+                            </div>
+                            <div class="local">
+                                <h3>LOCAL</h3>
+                                <h3>$56,899,879</h3>
+                            </div>
+                        </div>
+                        <div class="div5">
+                            <h3>FUTO Annual Budget</h3>
+                            <div class="foriegn">
+                                <h3>FOREIGN</h3>
+                                <h3>$33,883,875</h3>
+                            </div>
+                            <div class="local">
+                                <h3>LOCAL</h3>
+                                <h3>$56,899,879</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="div5">
-                <h3>FUTO Annual Budget</h3>
-                <div class="foriegn">
-                <h3>FOREIGN</h3>
-                <h3>$33,883,875</h3>
-                </div>
-                <div class="local">
-                    <h3>LOCAL</h3>
-                    <h3>$56,899,879</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  
-   
-
-
 
             <div class="last">
                 <div>
@@ -690,19 +690,14 @@
                     <p>Overhead Cost: $76,898,788</p>
                 </div>
             </div>
-
         </div>
-</div>
+    </div>
 
-
-  
-    <!-- Script tag closed properly, logic preserved -->
     <script>
         document.querySelector('#all1').addEventListener('click', function(e){
             e.preventDefault();
             e.stopPropagation();
             document.querySelector('.us').classList.toggle('show');
-
         });
         document.querySelector('#all2').addEventListener('click', function(e){
             e.preventDefault();
@@ -735,26 +730,22 @@
             document.querySelector('.grant').classList.toggle('show');
         });
 
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
+        });
 
-document.addEventListener('click', () => {
-    document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
-});
-
- document.querySelector('#keyInstitutional').addEventListener('click', function(e){
-    e.preventDefault();
-    document.querySelector('.page-container').style.display = 'none';
-    document.querySelector('.admission-list').style.display = 'none';
-    document.querySelector('.key-div').style.display = 'block';
- })
- document.querySelector('#futoAdmission').addEventListener('click', function(e){
-    e.preventDefault();
-    document.querySelector('.page-container').style.display = 'none';
-    document.querySelector('.key-div').style.display = 'none';
-    document.querySelector('.admission-list').style.display = 'block';
- });
-
-
- 
+        document.querySelector('#keyInstitutional').addEventListener('click', function(e){
+            e.preventDefault();
+            document.querySelector('.page-container').style.display = 'none';
+            document.querySelector('.admission-list').style.display = 'none';
+            document.querySelector('.key-div').style.display = 'block';
+        });
+        document.querySelector('#futoAdmission').addEventListener('click', function(e){
+            e.preventDefault();
+            document.querySelector('.page-container').style.display = 'none';
+            document.querySelector('.key-div').style.display = 'none';
+            document.querySelector('.admission-list').style.display = 'block';
+        });
     </script>
 </body>
 </html>
